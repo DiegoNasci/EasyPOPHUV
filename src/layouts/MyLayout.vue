@@ -216,7 +216,7 @@ export default {
   data () {
     return {
       leftDrawerOpen: this.$q.platform.is.desktop,
-      grupo: 'ps'
+      grupo: ''
     }
   },
   methods: {
