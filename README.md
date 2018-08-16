@@ -1,3 +1,3 @@
-# Quasar App
+Easy POP HUV
 
-> WIP
+>Sistema de Procedimentos Operacionais Padrão (EASY POP HUV)
