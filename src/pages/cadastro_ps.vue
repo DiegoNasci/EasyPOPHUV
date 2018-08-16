@@ -96,7 +96,7 @@ export default {
       }
     },
     salvar () {
-      this.$db.ref('users').push(this.form)
+      this.db('users').push(this.form)
       this.cancelar()
     },
     cancelar () {
