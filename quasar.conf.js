@@ -6,8 +6,13 @@ module.exports = function (ctx) {
     plugins: [
       'i18n',
       'axios',
+<<<<<<< HEAD
       'vuelidate',
       'firebase'
+=======
+      'parse',
+      'vuelidate'
+>>>>>>> deploy/master
     ],
     css: [
       'app.styl'
@@ -80,7 +85,12 @@ module.exports = function (ctx) {
         'QTh',
         'QTr',
         'QTd',
+<<<<<<< HEAD
         'QTableColumns'
+=======
+        'QTableColumns',
+        'QCard'
+>>>>>>> deploy/master
       ],
       directives: [
         'Ripple'
@@ -104,12 +114,20 @@ module.exports = function (ctx) {
       // workboxOptions: {},
       manifest: {
         name: 'EASY POP HUV',
+<<<<<<< HEAD
         short_name: 'Sistema de Procedimentos Operacionais Padrão (EASY POP HUV)',
+=======
+        short_name: 'EASY POP HUV',
+>>>>>>> deploy/master
         description: 'Sistema de Procedimentos Operacionais Padrão (EASY POP HUV)',
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#ffffff',
+<<<<<<< HEAD
         theme_color: '#0DBB56',
+=======
+        theme_color: '#37cc75',
+>>>>>>> deploy/master
         icons: [
           {
             'src': 'statics/icons/icon-128x128.png',
@@ -135,6 +153,19 @@ module.exports = function (ctx) {
             'src': 'statics/icons/icon-512x512.png',
             'sizes': '512x512',
             'type': 'image/png'
+<<<<<<< HEAD
+=======
+          },
+          {
+            'src': 'statics/icons/apple-icon-152x152.png',
+            'sizes': '152x152',
+            'type': 'image/png'
+          },
+          {
+            'src': 'statics/icons/ms-icon-144x144.png',
+            'sizes': '144x144',
+            'type': 'image/png'
+>>>>>>> deploy/master
           }
         ]
       }

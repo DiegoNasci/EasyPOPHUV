@@ -1,0 +1,4 @@
+{"error":{"code":201,"message":"password is required"},"level":"error","message":"Error generating response. ParseError { code: 201, message: 'password is required' }","timestamp":"2018-08-06T22:18:39.998Z"}
+{"code":201,"message":"password is required","level":"error","timestamp":"2018-08-06T22:18:40.002Z"}
+{"functionName":"getUserInfo","params":{"objectId":"D8A6CGMcXO"},"user":"D8A6CGMcXO","level":"info","message":"Ran cloud function getUserInfo for user D8A6CGMcXO with:\n  Input: {\"objectId\":\"D8A6CGMcXO\"}\n  Result: {\"objectId\":\"D8A6CGMcXO\",\"username\":\"diego\"}","timestamp":"2018-08-06T22:40:26.108Z"}
+{"functionName":"getUserInfo","params":{"objectId":"D8A6CGMcXO"},"user":"D8A6CGMcXO","level":"info","message":"Ran cloud function getUserInfo for user D8A6CGMcXO with:\n  Input: {\"objectId\":\"D8A6CGMcXO\"}\n  Result: {\"objectId\":\"D8A6CGMcXO\",\"username\":\"diego\"}","timestamp":"2018-08-06T22:45:44.111Z"}
