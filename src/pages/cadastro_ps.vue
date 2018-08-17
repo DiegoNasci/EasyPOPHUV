@@ -99,10 +99,9 @@ export default {
         return false
       }
     },
-    salvar () {
-      this.db('users').push(this.form)
-      this.cancelar()
-    },
+    // addUser: function () {
+    //     this.cancelar()
+    // },
     cancelar () {
       this.limparForm()
       this.$router.push('/login')
