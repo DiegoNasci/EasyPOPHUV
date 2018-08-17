@@ -12,21 +12,13 @@
           @click="leftDrawerOpen = !leftDrawerOpen"
           aria-label="Menu"
         >
-<<<<<<< HEAD
-          <q-icon name="menu" />
-=======
           <q-icon name="fas fa-bars" />
->>>>>>> deploy/master
         </q-btn>
 
         <q-toolbar-title>
           EASY POP HUV
         </q-toolbar-title>
-<<<<<<< HEAD
         <q-icon name="fas fa-sign-out-alt" @click.native="home" color="white" class="flex right"></q-icon>
-=======
-        <q-icon name="fas fa-sign-out-alt" @click.native="sair" color="white" class="flex right"></q-icon>
->>>>>>> deploy/master
       </q-toolbar>
     </q-layout-header>
 
@@ -197,15 +189,6 @@
         </q-collapsible>
          <q-collapsible  v-if="grupo === 'aluno' || grupo === 'colaborador'" icon="fas fa-compass" label="Mapas para Gerenciamento de Resíduos (MGR)">
           <div>
-<<<<<<< HEAD
-            <q-item @click.native="$router.push('/main/hg/POP1')">
-              <q-item-main label="Higienização do Ambiente Hospitalar"/>
-            </q-item>
-          </div>
-          <div>
-            <q-item @click.native="$router.push('/main')">
-              <q-item-main label="Listar" />
-=======
             <q-item @click.native="$router.push('/main/MAPA1')">
               <q-item-main label="Mapa 1º Pavimento"/>
             </q-item>
@@ -218,7 +201,6 @@
           <div>
             <q-item @click.native="$router.push('/main/MAPA3')">
               <q-item-main label="Mapa Térreo Interno" />
->>>>>>> deploy/master
             </q-item>
           </div>
         </q-collapsible>
@@ -239,7 +221,6 @@ export default {
   data () {
     return {
       leftDrawerOpen: this.$q.platform.is.desktop,
-<<<<<<< HEAD
       grupo: ''
     }
   },
@@ -250,43 +231,13 @@ export default {
         console.log('Logout Successfull')
         this.$router.push('/')
       })
-=======
-      grupo: 'aluno'
-    }
-  },
-  mounted () {
-    this.verificarGrupo()
-  },
-  methods: {
-    openURL,
-    home () {
-      this.$router.push('/main')
->>>>>>> deploy/master
     },
     verificarGrupo () {
       let Parse = this.$parse
       let user = Parse.User.current()
       if (user) {
-<<<<<<< HEAD
         this.grupo = user.get('grupo') || ''
       }
-=======
-        let params = {
-          objectId: user.id
-        }
-
-        console.log('a carregar grupos: ' + user.id)
-        Parse.Cloud.run('getUserInfo', params).then((usuario) => {
-          this.grupo = usuario.grupo
-        })
-      }
-    },
-    sair () {
-      let Parse = this.$parse
-      Parse.User.logOut().then(() => {
-        this.$router.push('/')
-      })
->>>>>>> deploy/master
     }
   }
 }
