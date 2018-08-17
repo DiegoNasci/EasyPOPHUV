@@ -10,11 +10,9 @@
           dense
           round
           @click="leftDrawerOpen = !leftDrawerOpen"
-          aria-label="Menu"
         >
           <q-icon name="fas fa-bars" />
         </q-btn>
-
         <q-toolbar-title>
           EASY POP HUV
         </q-toolbar-title>
