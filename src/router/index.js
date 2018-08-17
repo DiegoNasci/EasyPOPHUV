@@ -1,7 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-
 import routes from './routes'
+/* BANCO */
+import '../plugins/firebase'
+import VueFire from 'vuefire'
+
+Vue.use(VueFire)
 
 Vue.use(VueRouter)
 

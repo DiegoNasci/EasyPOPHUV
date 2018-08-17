@@ -8,16 +8,16 @@ div.bg-huv.window-height.window-width
         .row.flex.flex-center.q-ml-lg
           div.q-mb-sm.q-mr-lg
             .col
-              q-input(v-model="form.nome" stack-label="Nome" size="15")
+              q-input(v-model="form.username" stack-label="Nome" size="15")
           div.q-mb-sm.q-mr-lg
             .col
-              q-input(v-model="form.sobrenome" stack-label="Sobrenome" size="10")
+              q-input(v-model="form.lastName" stack-label="Sobrenome" size="10")
           div.q-mb-sm.q-mr-lg
             .col
             q-input(v-model="form.email" stack-label="E-mail" type="email" size="15")
           div.q-mb-sm.q-mr-lg
             .col
-              q-input(v-model="form.matricula" stack-label="Matrícula" size="12")
+              q-input(v-model="form.matriculation" stack-label="Matrícula" size="12")
           div.q-mb-sm.q-mr-lg
             .col
               q-input(v-model="form.password" type="password" float-label="Password" stack-label="Senha" size="15")
@@ -27,9 +27,9 @@ div.bg-huv.window-height.window-width
         center
           .row.q-mt-lg
             .col
-              q-btn(label="Salvar" @click="salvar").bg-huv
+              q-btn(label="Salvar" @click="addUser").bg-huv
             .col
-              q-btn(label="Cancelar" @click="cancelar" color="red-6")
+              q-btn(label="Cancelar" @click="cancel" color="red-6")
 
 </template>
 <style <style scoped>
@@ -48,29 +48,20 @@ div.bg-huv.window-height.window-width
 <script>
 import { validationMixin } from 'vuelidate'
 import { email, required } from 'vuelidate/lib/validators'
-
+import { ref } from '../plugins/firebase'
 export default {
   mixins: [validationMixin],
   data () {
     return {
       form: {
-        objectId: undefined,
         username: '',
+        lastName: '',
+        matriculation: '',
         password: '',
         password2: '',
         email: '',
-        grupo: '',
-        ativo: true,
-        nome: '',
-        sobrenome: ''
-      },
-      registros: [],
-      modoLista: true,
-      editarUsuario: false,
-      colColor: '#3c294d',
-      colunasTabela: [],
-      configTabela: {},
-      emailMessage: ''
+        group: 'colaborador'
+      }
     }
   },
   validations: {
@@ -81,6 +72,9 @@ export default {
       email: {
         required,
         email
+      },
+      matriculation: {
+        required
       }
     }
   },
@@ -99,24 +93,24 @@ export default {
         return false
       }
     },
-    // addUser: function () {
-    //     this.cancelar()
-    // },
-    cancelar () {
-      this.limparForm()
-      this.$router.push('/login')
+
+    addUser () {
+      if (this.form.matriculation.length > 5) {
+        this.form.group = 'aluno'
+      }
+      ref.push({
+        username: this.form.username,
+        lastName: this.form.lastName,
+        matriculation: this.form.matriculation,
+        password: this.form.password,
+        email: this.form.email,
+        group: this.form.grupo
+      })
+      this.cancel()
     },
-    limparForm () {
-      this.editarUsuario = false
-      this.form.objectId = undefined
-      this.form.username = ''
-      this.form.password = ''
-      this.form.password2 = ''
-      this.form.email = ''
-      this.form.grupo = ''
-      this.form.ativo = false
-      this.form.nome = ''
-      this.form.sobrenome = ''
+    cancel () {
+      this.form.reset()
+      this.$router.push('/login')
     }
   }
 }

@@ -8,9 +8,10 @@ const config = {
   messagingSenderId: '939651355743'
 }
 
-export const fireApp = firebase.initializeApp(config)
-export const db = fireApp.database()
-export const AUTH = fireApp.auth()
+export const fire = firebase.initializeApp(config)
+export const db = fire.database()
+export const AUTH = fire.auth()
+export const ref = db.ref('users')
 
 export default ({ app, router, Vue }) => {
   Vue.prototype.$auth = AUTH

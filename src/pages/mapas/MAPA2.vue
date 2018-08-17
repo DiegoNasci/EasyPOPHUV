@@ -2,7 +2,7 @@
 div.q-mb-lg
   h4.text-center
     b|Mapa Térreo Externo
-  img(src="statics/images/map2.svg")
+  embed(src="statics/images/map2.svg" type="image/svg+xml" id="my-embed")
 </template>
 <style scoped>
 </style>
