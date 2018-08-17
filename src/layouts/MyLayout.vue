@@ -221,7 +221,7 @@ export default {
   data () {
     return {
       leftDrawerOpen: this.$q.platform.is.desktop,
-      grupo: ''
+      grupo: 'aluno'
     }
   },
   methods: {
