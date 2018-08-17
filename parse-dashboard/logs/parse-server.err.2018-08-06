@@ -1,2 +1,0 @@
-{"error":{"code":201,"message":"password is required"},"level":"error","message":"Error generating response. ParseError { code: 201, message: 'password is required' }","timestamp":"2018-08-06T22:18:39.999Z"}
-{"code":201,"message":"password is required","level":"error","timestamp":"2018-08-06T22:18:40.002Z"}

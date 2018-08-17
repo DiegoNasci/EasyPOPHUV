@@ -8,11 +8,7 @@ div.bg-huv.window-height.window-width
         .row.flex.flex-center.q-ml-lg
           div.q-mb-sm.q-mr-lg
             .col
-<<<<<<< HEAD
               q-input(v-model="form.nome" stack-label="Nome" size="15")
-=======
-              q-input(v-model="form.username" stack-label="Nome" size="15")
->>>>>>> deploy/master
           div.q-mb-sm.q-mr-lg
             .col
               q-input(v-model="form.sobrenome" stack-label="Sobrenome" size="10")
@@ -21,11 +17,7 @@ div.bg-huv.window-height.window-width
             q-input(v-model="form.email" stack-label="E-mail" type="email" size="15")
           div.q-mb-sm.q-mr-lg
             .col
-<<<<<<< HEAD
-              q-input(v-model="form.username" stack-label="Matrícula" size="12")
-=======
               q-input(v-model="form.matricula" stack-label="Matrícula" size="12")
->>>>>>> deploy/master
           div.q-mb-sm.q-mr-lg
             .col
               q-input(v-model="form.password" type="password" float-label="Password" stack-label="Senha" size="15")

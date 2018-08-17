@@ -31,14 +31,10 @@ export default [
       { path: 'PGRSS4', component: () => import('pages/pgrss/PGRSS4') },
       { path: 'PGRSS5', component: () => import('pages/pgrss/PGRSS5') },
       { path: 'PGRSS6', component: () => import('pages/pgrss/PGRSS6') },
-<<<<<<< HEAD
-      { path: 'PGRSS7', component: () => import('pages/pgrss/PGRSS7') }
-=======
       { path: 'PGRSS7', component: () => import('pages/pgrss/PGRSS7') },
       { path: 'MAPA1', component: () => import('pages/mapas/MAPA1') },
       { path: 'MAPA2', component: () => import('pages/mapas/MAPA2') },
       { path: 'MAPA3', component: () => import('pages/mapas/MAPA3') }
->>>>>>> deploy/master
     ]
   },
   {

@@ -1,9 +1,0 @@
-{"error":{"code":200,"message":"username/email is required."},"level":"error","message":"Error handling request: ParseError { code: 200, message: 'username/email is required.' }","timestamp":"2018-08-13T15:30:19.203Z"}
-{"code":200,"message":"username/email is required.","level":"error","timestamp":"2018-08-13T15:30:19.207Z"}
-{"error":{"code":200,"message":"bad or missing username"},"level":"error","message":"Error generating response. ParseError { code: 200, message: 'bad or missing username' }","timestamp":"2018-08-13T15:31:48.116Z"}
-{"code":200,"message":"bad or missing username","level":"error","timestamp":"2018-08-13T15:31:48.117Z"}
-{"functionName":"createUser","error":{"code":141,"message":"bad or missing username"},"params":{"username":"","password":"********","email":""},"level":"error","message":"Failed running cloud function createUser for user undefined with:\n  Input: {\"username\":\"\",\"password\":\"\"********\"email\":\"\"}\n  Error: {\"code\":141,\"message\":\"bad or missing username\"}","timestamp":"2018-08-13T15:31:48.120Z"}
-{"error":{"code":141,"message":"bad or missing username"},"level":"error","message":"Error generating response. ParseError { code: 141, message: 'bad or missing username' }","timestamp":"2018-08-13T15:31:48.120Z"}
-{"code":141,"message":"bad or missing username","level":"error","timestamp":"2018-08-13T15:31:48.121Z"}
-{"error":{"code":200,"message":"username/email is required."},"level":"error","message":"Error handling request: ParseError { code: 200, message: 'username/email is required.' }","timestamp":"2018-08-13T15:41:24.068Z"}
-{"code":200,"message":"username/email is required.","level":"error","timestamp":"2018-08-13T15:41:24.068Z"}
