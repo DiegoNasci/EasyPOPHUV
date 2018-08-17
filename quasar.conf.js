@@ -42,7 +42,7 @@ module.exports = function (ctx) {
       }
     },
     devServer: {
-      //https: true,
+      https: true,
       port: 3000,
       open: true // opens browser window automatically
     },
