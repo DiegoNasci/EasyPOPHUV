@@ -81,35 +81,40 @@ export default {
   computed: {
   },
   methods: {
-    emailValid () {
-      if (this.$v.form.email.required && this.$v.form.email.email) {
-        return true
-      } else {
-        if (!this.$v.form.email.required) {
-          this.emailMessage = 'e-mail é obrigatório'
-        } else if (!this.$v.form.email.email) {
-          this.emailMessage = 'e-mail inválido'
+    signUp () {
+      this.$auth.createUserWithEmailAndPassword(this.form.email, this.form.password).then(
+        (user) => {
+        },
+        (err) => {
+          alert('Oops.' + err.message)
         }
-        return false
-      }
+      )
     },
 
     addUser () {
-      if (this.form.matriculation.length > 5) {
-        this.form.group = 'aluno'
+      console.log(this.form)
+      if (this.$v.form.email.required && this.$v.form.email.email) {
+        if (this.form.matriculation.length > 5) {
+          this.form.group = 'aluno'
+        }
+        this.signUp()
+        ref.push(this.form)
+        this.cancel()
+      } else {
+        if (!this.$v.form.email.required) {
+          this.$q.dialog({
+            title: 'Erro',
+            message: 'e-mail é obrigatório!'
+          })
+        } else if (!this.$v.form.email.email) {
+          this.$q.dialog({
+            title: 'Erro',
+            message: 'e-mail inválido!'
+          })
+        }
       }
-      ref.push({
-        username: this.form.username,
-        lastName: this.form.lastName,
-        matriculation: this.form.matriculation,
-        password: this.form.password,
-        email: this.form.email,
-        group: this.form.grupo
-      })
-      this.cancel()
     },
     cancel () {
-      this.form.reset()
       this.$router.push('/login')
     }
   }
