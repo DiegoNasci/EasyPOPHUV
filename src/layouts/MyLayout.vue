@@ -76,7 +76,7 @@
             </q-item>
           </div>
         </q-collapsible>
-        <q-collapsible v-if="grupo === 'aluno' || grupo === 'colaborador'" icon="far fa-file-alt" label="Protocolo Operacional Padrão (POP)">
+        <q-collapsible v-if="group === 'aluno' || group === 'colaborador'" icon="far fa-file-alt" label="Protocolo Operacional Padrão (POP)">
           <q-collapsible label="Higienização">
             <div>
               <q-item @click.native="$router.push('/main/hg/POP9')">
@@ -185,7 +185,7 @@
             </div>
           </q-collapsible>
         </q-collapsible>
-         <q-collapsible  v-if="grupo === 'aluno' || grupo === 'colaborador'" icon="fas fa-compass" label="Mapas para Gerenciamento de Resíduos (MGR)">
+         <q-collapsible  v-if="group === 'aluno' || group === 'colaborador'" icon="fas fa-compass" label="Mapas para Gerenciamento de Resíduos (MGR)">
           <div>
             <q-item @click.native="$router.push('/main/MAPA1')">
               <q-item-main label="Mapa 1º Pavimento"/>
@@ -213,14 +213,21 @@
 
 <script>
 import { openURL } from 'quasar'
-
+import { fire } from '../plugins/firebase'
 export default {
   name: 'LayoutDefault',
   data () {
     return {
       leftDrawerOpen: this.$q.platform.is.desktop,
-      grupo: 'aluno'
+      group: ''
     }
+  },
+  created () {
+    this.user = fire.auth().currentUser
+    if (this.user) {
+      this.group = this.users.group
+    }
+    console.log(this.group)
   },
   methods: {
     openURL,
@@ -229,13 +236,6 @@ export default {
         console.log('Logout Successfull')
         this.$router.push('/')
       })
-    },
-    verificarGrupo () {
-      let Parse = this.$parse
-      let user = Parse.User.current()
-      if (user) {
-        this.grupo = user.get('grupo') || ''
-      }
     }
   }
 }

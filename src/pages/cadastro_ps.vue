@@ -8,7 +8,11 @@ div.bg-huv.window-height.window-width
         .row.flex.flex-center.q-ml-lg
           div.q-mb-sm.q-mr-lg
             .col
-              q-input(v-model="form.username" stack-label="Nome" size="15")
+              q-field(:count="8" helper="Some helper" :error="error"
+        error-label="Oops, we got an error."
+        :warning="warning"
+        warning-label="Hey, we got a warning.")
+                q-input(v-model="form.username" stack-label="Nome" size="15")
           div.q-mb-sm.q-mr-lg
             .col
               q-input(v-model="form.lastName" stack-label="Sobrenome" size="10")
