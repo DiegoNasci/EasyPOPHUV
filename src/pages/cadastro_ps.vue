@@ -8,11 +8,8 @@ div.bg-huv.window-height.window-width
         .row.flex.flex-center.q-ml-lg
           div.q-mb-sm.q-mr-lg
             .col
-              q-field(:count="8" helper="Some helper" :error="error"
-        error-label="Oops, we got an error."
-        :warning="warning"
-        warning-label="Hey, we got a warning.")
-                q-input(v-model="form.username" stack-label="Nome" size="15")
+              q-field()
+                q-input(v-model="form.username" stack-label="Nome" size="15" required)
           div.q-mb-sm.q-mr-lg
             .col
               q-input(v-model="form.lastName" stack-label="Sobrenome" size="10")
@@ -27,7 +24,7 @@ div.bg-huv.window-height.window-width
               q-input(v-model="form.password" type="password" float-label="Password" stack-label="Senha" size="15")
           div.q-mb-sm.q-mr-lg
             .col
-              q-input(v-model="form.password2" type="password" float-label="Password" stack-label="Confirmar Senha" size="5")
+              q-input( v-model="confirmPassword" min-length="6" label-width="6" type="password" float-label="Password" stack-label="Confirmar Senha" size="5")
         center
           .row.q-mt-lg
             .col
@@ -62,10 +59,10 @@ export default {
         lastName: '',
         matriculation: '',
         password: '',
-        password2: '',
         email: '',
         group: 'colaborador'
-      }
+      },
+      confirmPassword: ''
     }
   },
   validations: {
@@ -79,43 +76,81 @@ export default {
       },
       matriculation: {
         required
+      },
+      password: {
+        required
       }
+    },
+    confirmPassword: {
+      required
     }
-  },
-  computed: {
   },
   methods: {
     signUp () {
       this.$auth.createUserWithEmailAndPassword(this.form.email, this.form.password).then(
         (user) => {
+          ref.push(this.form)
+          this.$q.dialog({
+            title: 'Parabéns!',
+            message: 'Cadastro efetuado com sucesso.'
+          })
         },
         (err) => {
-          alert('Oops.' + err.message)
+          alert('Oops. ' + err.message)
         }
       )
     },
 
     addUser () {
-      console.log(this.form)
-      if (this.$v.form.email.required && this.$v.form.email.email) {
-        if (this.form.matriculation.length > 5) {
-          this.form.group = 'aluno'
+      if (this.form.matriculation.length > 5) {
+        this.form.group = 'aluno'
+      }
+
+      if (this.$v.form.username.required) {
+        if (this.$v.form.email.required && this.$v.form.email.email) {
+          if (this.$v.form.matriculation.required) {
+            if (this.form.password.length > 5) {
+              if (this.form.password === this.confirmPassword) {
+                this.signUp()
+                this.cancel()
+              } else {
+                this.$q.dialog({
+                  title: 'Erro',
+                  message: 'Senhas não conferem!'
+                })
+                this.form.password = ''
+                this.confirmPassword = ''
+              }
+            } else {
+              this.$q.dialog({
+                title: 'Erro',
+                message: 'Senha precisa conter no mínimo 6 caracteres!'
+              })
+            }
+          } else {
+            this.$q.dialog({
+              title: 'Erro',
+              message: 'Matrícula é obrigatória!'
+            })
+          }
+        } else {
+          if (!this.$v.form.email.required) {
+            this.$q.dialog({
+              title: 'Erro',
+              message: 'E-mail é obrigatório!'
+            })
+          } else if (!this.$v.form.email.email) {
+            this.$q.dialog({
+              title: 'Erro',
+              message: 'E-mail inválido!'
+            })
+          }
         }
-        this.signUp()
-        ref.push(this.form)
-        this.cancel()
       } else {
-        if (!this.$v.form.email.required) {
-          this.$q.dialog({
-            title: 'Erro',
-            message: 'e-mail é obrigatório!'
-          })
-        } else if (!this.$v.form.email.email) {
-          this.$q.dialog({
-            title: 'Erro',
-            message: 'e-mail inválido!'
-          })
-        }
+        this.$q.dialog({
+          title: 'Erro',
+          message: 'Nome é obrigatório!'
+        })
       }
     },
     cancel () {

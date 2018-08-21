@@ -215,7 +215,6 @@
 import { openURL } from 'quasar'
 import { fire } from '../plugins/firebase'
 export default {
-  name: 'LayoutDefault',
   data () {
     return {
       leftDrawerOpen: this.$q.platform.is.desktop,
@@ -223,11 +222,11 @@ export default {
     }
   },
   created () {
-    this.user = fire.auth().currentUser
-    if (this.user) {
+    this.users = fire.auth().currentUser
+    if (this.users) {
       this.group = this.users.group
     }
-    console.log(this.group)
+    console.log('Grupo: ' + this.group)
   },
   methods: {
     openURL,
@@ -242,11 +241,11 @@ export default {
 </script>
 
 <style>
-.maximo-pop{
+.maximo-pop {
   max-width: 800px;
 }
-.bg-huv{
+.bg-huv {
   background-color: rgb(13, 187, 138);
-  color: white
+  color: white;
 }
 </style>
