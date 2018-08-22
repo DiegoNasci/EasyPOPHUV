@@ -42,6 +42,10 @@ export default [
     component: () => import('pages/home')
   },
   {
+    path: '/siteMap',
+    component: () => import('pages/siteMap')
+  },
+  {
     path: '/cps',
     component: () => import('pages/cadastro_ps')
   },
