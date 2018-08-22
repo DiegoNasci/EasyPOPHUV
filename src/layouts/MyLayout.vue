@@ -217,19 +217,19 @@ export default {
   data () {
     return {
       leftDrawerOpen: this.$q.platform.is.desktop,
-      group: '1'
+      group: ''
     }
   },
   created () {
     this.$auth.onAuthStateChanged(currentUser => {
-      this.group2 = currentUser
+      this.group = currentUser
     })
     // console.log(this.$auth)
     // this.users = this.$auth.currentUser
     // if (this.users) {
     //   this.group = this.users.group
     // }
-    console.log('Grupo: ' + this.group2)
+    console.log('Grupo: ' + this.group)
   },
   methods: {
     openURL,
