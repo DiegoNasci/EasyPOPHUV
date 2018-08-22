@@ -1,5 +1,6 @@
 <template lang="pug">
-  google-site-verification: google6437265c3c0ab9f1.html
+div
+  |google-site-verification: google6437265c3c0ab9f1.html
 </template>
 <style scoped>
 
