@@ -18,7 +18,7 @@ div.bg-huv.window-height.window-width
             q-input(v-model="form.email" stack-label="E-mail" type="email" size="15")
           div.q-mb-sm.q-mr-lg
             .col
-              q-input(v-model="form.matriculation" stack-label="Matrícula" size="12")
+              q-input(v-model="form.matriculation" stack-label="Matrícula" size="12" type="number")
           div.q-mb-sm.q-mr-lg
             .col
               q-input(v-model="form.password" type="password" float-label="Password" stack-label="Senha" size="15")
@@ -94,6 +94,7 @@ export default {
             title: 'Parabéns!',
             message: 'Cadastro efetuado com sucesso.'
           })
+          this.cancel()
         },
         (err) => {
           alert('Oops. ' + err.message)
@@ -112,7 +113,6 @@ export default {
             if (this.form.password.length > 5) {
               if (this.form.password === this.confirmPassword) {
                 this.signUp()
-                this.cancel()
               } else {
                 this.$q.dialog({
                   title: 'Erro',
