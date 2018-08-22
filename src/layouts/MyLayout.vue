@@ -213,20 +213,23 @@
 
 <script>
 import { openURL } from 'quasar'
-import { fire } from '../plugins/firebase'
 export default {
   data () {
     return {
       leftDrawerOpen: this.$q.platform.is.desktop,
-      group: ''
+      group: '1'
     }
   },
   created () {
-    this.users = fire.auth().currentUser
-    if (this.users) {
-      this.group = this.users.group
-    }
-    console.log('Grupo: ' + this.group)
+    this.$auth.onAuthStateChanged(currentUser => {
+      this.group2 = currentUser
+    })
+    // console.log(this.$auth)
+    // this.users = this.$auth.currentUser
+    // if (this.users) {
+    //   this.group = this.users.group
+    // }
+    console.log('Grupo: ' + this.group2)
   },
   methods: {
     openURL,
