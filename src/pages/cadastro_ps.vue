@@ -4,33 +4,25 @@ div.bg-huv.window-height.window-width
     q-card.bg-white.q-ma-sm.q-pa-xl.shadow-5.maximo-cad.meio-cad
       h3.text-center.flex.flex-center.text-grey-9
         |Cadastro de Colaborador ou Aluno
-      .form
-        .row.flex.flex-center.q-ml-lg
-          div.q-mb-sm.q-mr-lg
-            .col
-              q-field()
-                q-input(v-model="form.username" stack-label="Nome" size="15" required)
-          div.q-mb-sm.q-mr-lg
-            .col
-              q-input(v-model="form.lastName" stack-label="Sobrenome" size="10")
-          div.q-mb-sm.q-mr-lg
-            .col
+        .row.justify-center
+          .col-10.col-md-5.q-mb-sm.q-mr-lg
+            q-input(v-model="form.username" stack-label="Nome")
+          .col-10.col-md-5.q-mb-sm.q-mr-lg
+            q-input(v-model="form.lastName" stack-label="Sobrenome")
+          .col-10.col-md-5.q-mb-sm.q-mr-lg
             q-input(v-model="form.email" stack-label="E-mail" type="email" size="15")
-          div.q-mb-sm.q-mr-lg
-            .col
-              q-input(v-model="form.matriculation" stack-label="Matrícula" size="12" type="number")
-          div.q-mb-sm.q-mr-lg
-            .col
-              q-input(v-model="form.password" type="password" float-label="Password" stack-label="Senha" size="15")
-          div.q-mb-sm.q-mr-lg
-            .col
-              q-input( v-model="confirmPassword" min-length="6" label-width="6" type="password" float-label="Password" stack-label="Confirmar Senha" size="5")
-        center
-          .row.q-mt-lg
-            .col
-              q-btn(label="Salvar" @click="addUser").bg-huv
-            .col
-              q-btn(label="Cancelar" @click="cancel" color="red-6")
+          .col-10.col-md-5.q-mb-sm.q-mr-lg
+            q-input(v-model="form.matriculation" stack-label="Matrícula" size="12" type="number")
+          .col-10.col-md-5.q-mb-sm.q-mr-lg
+            q-input(v-model="form.password" type="password" float-label="Password" stack-label="Senha" size="15")
+          .col-10.col-md-5.q-mb-sm.q-mr-lg
+            q-input( v-model="confirmPassword" min-length="6" label-width="6" type="password" float-label="Password" stack-label="Confirmar Senha" size="5")
+      center
+        .row.q-mt-lg
+          .col
+            q-btn(label="Salvar" @click="addUser").bg-huv
+          .col
+            q-btn(label="Cancelar" @click="cancel" color="red-6")
 
 </template>
 <style <style scoped>
