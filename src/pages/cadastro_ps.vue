@@ -10,13 +10,13 @@ div.bg-huv.window-height.window-width
           .col-10.col-md-5.q-mb-sm.q-mr-lg
             q-input(v-model="form.lastName" stack-label="Sobrenome")
           .col-10.col-md-5.q-mb-sm.q-mr-lg
-            q-input(v-model="form.email" stack-label="E-mail" type="email" size="15")
+            q-input(v-model="form.email" stack-label="E-mail" type="email")
           .col-10.col-md-5.q-mb-sm.q-mr-lg
-            q-input(v-model="form.matriculation" stack-label="Matrícula" size="12" type="number")
+            q-input(v-model="form.matriculation" stack-label="Matrícula" type="number")
           .col-10.col-md-5.q-mb-sm.q-mr-lg
-            q-input(v-model="form.password" type="password" float-label="Password" stack-label="Senha" size="15")
+            q-input(v-model="form.password" type="password" float-label="Password" stack-label="Senha")
           .col-10.col-md-5.q-mb-sm.q-mr-lg
-            q-input( v-model="confirmPassword" min-length="6" label-width="6" type="password" float-label="Password" stack-label="Confirmar Senha" size="5")
+            q-input( v-model="confirmPassword" type="password" float-label="Password" stack-label="Confirmar Senha")
       center
         .row.q-mt-lg
           .col
