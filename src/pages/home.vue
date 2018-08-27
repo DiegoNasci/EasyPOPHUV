@@ -9,7 +9,7 @@ div
       .col-4.q-pb-md
         q-btn(label="Usuário" @click="main").botao.bg-huv
       .col-4
-        q-btn(label="Colaborador ou Aluno" @click="login" color="faded").botao
+        q-btn(label="Colaborador ou Aluno" @click="login" color="faded" groupProps="comum").botao
 </template>
 <style>
 .metade{
@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     main () {
-      this.$router.push('/main')
+      this.$router.push('/main/c')
     },
     login () {
       this.$router.push('/login')

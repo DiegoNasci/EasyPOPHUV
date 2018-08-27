@@ -41,42 +41,42 @@
         </q-item>
         <q-collapsible icon="fas fa-trash-alt" label="Plano de Gerenciamento de Resíduos (PGR)">
           <div>
-            <q-item @click.native="$router.push('/main/PGRSS1')">
+            <q-item @click.native="$router.push('PGRSS1')">
               <q-item-main label="Armazenamento Externo"/>
             </q-item>
           </div>
           <div>
-            <q-item @click.native="$router.push('/main/PGRSS2')">
+            <q-item @click.native="$router.push('PGRSS2')">
               <q-item-main label="Característica e Quantidade de Resíduos Gerado" />
             </q-item>
           </div>
           <div>
-            <q-item @click.native="$router.push('/main/PGRSS3')">
+            <q-item @click.native="$router.push('PGRSS3')">
               <q-item-main label="Coleta e Transporte Externo" />
             </q-item>
           </div>
           <div>
-            <q-item @click.native="$router.push('/main/PGRSS4')">
+            <q-item @click.native="$router.push('PGRSS4')">
               <q-item-main label="Coleta e Transporte Interno" />
             </q-item>
           </div>
           <div>
-            <q-item @click.native="$router.push('/main/PGRSS5')">
+            <q-item @click.native="$router.push('PGRSS5')">
               <q-item-main label="Destinação Final Adequada" />
             </q-item>
           </div>
           <div>
-            <q-item @click.native="$router.push('/main/PGRSS6')">
+            <q-item @click.native="$router.push('PGRSS6')">
               <q-item-main label="Manuseio e Acondicionamento" />
             </q-item>
           </div>
           <div>
-            <q-item @click.native="$router.push('/main/PGRSS7')">
+            <q-item @click.native="$router.push('PGRSS7')">
               <q-item-main label="Origem de Geração e Fluxo dos Resíduos" />
             </q-item>
           </div>
         </q-collapsible>
-        <q-collapsible v-if="group === 'aluno' || group === 'colaborador'" icon="far fa-file-alt" label="Protocolo Operacional Padrão (POP)">
+        <q-collapsible v-if="grupo === 'aluno' || grupo === 'colaborador'" icon="far fa-file-alt" label="Protocolo Operacional Padrão (POP)">
           <q-collapsible label="Higienização">
             <div>
               <q-item @click.native="$router.push('/main/hg/POP9')">
@@ -185,7 +185,7 @@
             </div>
           </q-collapsible>
         </q-collapsible>
-         <q-collapsible  v-if="group === 'aluno' || group === 'colaborador'" icon="fas fa-compass" label="Mapas para Gerenciamento de Resíduos (MGR)">
+         <q-collapsible  v-if="grupo === 'aluno' || grupo === 'colaborador'" icon="fas fa-compass" label="Mapas para Gerenciamento de Resíduos (MGR)">
           <div>
             <q-item @click.native="$router.push('/main/MAPA1')">
               <q-item-main label="Mapa 1º Pavimento"/>
@@ -217,8 +217,18 @@ export default {
   data () {
     return {
       leftDrawerOpen: this.$q.platform.is.desktop,
-      group: 'colaborador'
+      grupo: ''
     }
+  },
+  mounted () {
+    let group = this.$route.params.group
+    if (group) {
+      this.grupo = group
+      console.log('Grupo: ' + this.grupo)
+    } else {
+      this.grupo = 'aluno'
+    }
+    console.log('Grupo: ' + this.grupo)
   },
   created () {
     this.$auth.onAuthStateChanged(currentUser => {
@@ -229,7 +239,6 @@ export default {
     // if (this.users) {
     //   this.group = this.users.group
     // }
-    console.log('Grupo: ' + this.group2)
   },
   methods: {
     openURL,
