@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     main () {
-      this.$router.push('/main/c')
+      this.$router.push('/main')
     },
     login () {
       this.$router.push('/login')

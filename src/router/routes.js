@@ -1,6 +1,6 @@
 export default [
   {
-    path: '/main/:group?',
+    path: '/main',
     component: () => import('layouts/MyLayout.vue'),
     children: [
       { path: '', component: () => import('pages/index') },
