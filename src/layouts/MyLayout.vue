@@ -213,6 +213,7 @@
 
 <script>
 import { openURL } from 'quasar'
+// import { ref } from '../plugins/firebase'
 export default {
   data () {
     return {
@@ -220,24 +221,31 @@ export default {
       grupo: ''
     }
   },
-  mounted () {
-    let group = this.$route.params.group
-    if (group) {
-      this.grupo = group
-      console.log('Grupo: ' + this.grupo)
-    } else {
-      this.grupo = 'aluno'
-    }
-  },
   created () {
+    // let group = this.$route.params.group
+    // if (group) {
+    //   this.grupo = group
+    //   console.log('Grupo: ' + this.grupo)
+    // } else {
+    //   this.grupo = ''
+    // }
     this.$auth.onAuthStateChanged(currentUser => {
-      this.group2 = currentUser
+      const user = this.$auth.currentUser.uid
+      // console.log('UID: ' + user)
+      if (user) {
+        this.grupo = 'aluno'
+      }
     })
     // console.log(this.$auth)
-    // this.users = this.$auth.currentUser
-    // if (this.users) {
-    //   this.group = this.users.group
-    // }
+    // collection('users').get().then((snap) => {
+    //   snap.forEach(function (profile) {
+    //     console.log('Sign-in provider: ' + profile.providerId)
+    //     console.log('Provider-specific UID: ' + profile.uid)
+    //     console.log('Name: ' + profile.username)
+    //     console.log('Email ' + profile.email)
+    //     console.log('Grupo: ' + profile.group)
+    //   })
+    // })
   },
   methods: {
     openURL,

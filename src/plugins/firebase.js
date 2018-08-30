@@ -1,4 +1,5 @@
 import firebase from 'firebase'
+// import VueFirestore from 'vue-firestore'
 const config = {
   apiKey: 'AIzaSyClKRsC9GkL8VJwdTCmx2mHDJYFdHmLg8A',
   authDomain: 'ephuv-ae866.firebaseapp.com',
