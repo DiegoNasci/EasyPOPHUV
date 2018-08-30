@@ -20,7 +20,7 @@ div.bg-huv.window-height.window-width
       center
         .row.q-mt-lg
           .col
-            q-btn(label="Salvar" v-on:click="register").bg-huv
+            q-btn(label="Salvar" @click="addUser").bg-huv
           .col
             q-btn(label="Cancelar" @click="cancel" color="red-6")
 
@@ -41,7 +41,7 @@ div.bg-huv.window-height.window-width
 <script>
 import { validationMixin } from 'vuelidate'
 import { email, required } from 'vuelidate/lib/validators'
-import { db } from '../plugins/firebase'
+import { ref } from '../plugins/firebase'
 // import firebase from 'firebase'
 export default {
   mixins: [validationMixin],
@@ -81,10 +81,10 @@ export default {
   methods: {
     signUp () {
       this.$auth.createUserWithEmailAndPassword(this.form.email, this.form.password).then(
-        this.uid = this.$auth.currentUser.uid,
         (user) => {
-          db.ref('users/' + this.uid).set(this.form)
+          // db.ref('users/' + this.uid).set(this.form)
           // db.collection('users').doc(this.uid).set(this.form)
+          ref.push(this.form)
           this.$q.dialog({
             title: 'Parabéns!',
             message: 'Cadastro efetuado com sucesso.'
